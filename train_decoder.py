@@ -212,7 +212,7 @@ def train(
         num_heads=attn_heads,
         n_layers=attn_layers,
         num_embeddings=vae_codebook_size,  # 词表大小 = 码本大小
-        inference_verifier_fn=lambda x: tokenizer.exists_prefix(x),  # 约束解码验证函数
+        inference_verifier_fn=lambda x: tokenizer.exists_prefix(x),  # 约束解码验证函数 ⭐
         sem_id_dim=tokenizer.sem_ids_dim,  # 语义ID维度 (n_layers + 1)
         max_pos=train_dataset.max_seq_len*tokenizer.sem_ids_dim,  # 最大位置
         jagged_mode=model_jagged_mode

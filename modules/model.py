@@ -351,7 +351,7 @@ class EncoderDecoderRetrievalModel(nn.Module):
             # 选择top-K个有效候选（无效候选的概率被设为极小值）
             # ----------------------------------------------------------------
             sorted_log_probas, sorted_indices = (
-                -10000*(~is_valid_prefix) +  # 无效前缀的惩罚
+                -10000*(~is_valid_prefix) +  # 无效前缀的惩罚 ⭐
                 sampled_log_probas +
                 maybe_repeat_interleave(log_probas, n_top_k_candidates, dim=1)
             ).sort(-1, descending=True)
